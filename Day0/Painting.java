@@ -7,6 +7,9 @@ public class Painting {
     // command + / = comment
     // class name must match with the file name, and each word must be capitalized
     // use command + s to save my work, and click "Commit 1 file to main" to save it forever
+    // yellow underlines are fine, red underline needs to be concerned
+    // or is ||
+    // and is &&
 
     private int numberOfBirds; // = 7
     private double percentOfTrees; // = 80.5;
