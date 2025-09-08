@@ -10,6 +10,7 @@ public class Painting {
     // yellow underlines are fine, red underline needs to be concerned
     // or is ||
     // and is &&
+    // /n is the new line
 
     private int numberOfBirds; // = 7
     private double percentOfTrees; // = 80.5;
@@ -25,6 +26,36 @@ public class Painting {
         isFramed = true;
         background = 'B'; // single-quote
     }
+
+    // public Painting(char backgroundColor) {
+    //     numberOfBirds = 7;
+    //     percentOfTrees = 80.5;
+    //     shape = "rectangle";
+    //     isFramed = true;
+    //     background = backgroundColor;
+    // }
+
+    public boolean equals(Painting otherPainting) {
+        if (
+            this.numberOfBirds == otherPainting.numberOfBirds && // use == if it's a primitive data type (anything lowercased)
+            this.percentOfTrees == otherPainting.percentOfTrees &&
+            this.shape.equals(otherPainting.shape) && // use .equal for any data type other that primitive (e.g. uppercase)
+            this.isFramed == otherPainting.isFramed && 
+            this.background == otherPainting.background
+        ) {
+            return true;
+        }
+        return false;
+    }
+
+    public String toString() {
+        return "This painting had " + numberOfBirds + " birds. " 
+        + percentOfTrees + "% of it are trees. " 
+        + "Its shape is " + shape + ". " 
+        + "It is " +  isFramed + " that it's framed. " 
+        + "The background color is: " + background;
+    }
+
 
     // viewed
     // broke
