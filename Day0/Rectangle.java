@@ -4,24 +4,26 @@ public class Rectangle {
     // (general default) constructor
     // constructors do not have return type
     // used to initialize the private instance variable
+
     public Rectangle() {
         length = 5;
         width = 8;
     }
 
     // defines the instance variable withe the local parameter
-    public Rectangle (int desiredlength, int desiredwidth) {
+    public Rectangle(int desiredlength, int desiredwidth) {
         length = desiredlength;
         width = desiredwidth;
     }
 
-    public Rectangle (int squarerestangle) {
+    public Rectangle(int squarerestangle) {
         length = squarerestangle;
         width = squarerestangle;
     }
 
     // getter
-    // public method within a class that is used to retrieve the value of a private instance variable of that class
+    // public method within a class that is used to:
+    // retrieve the value of a private instance variable of that class
     // "int" is the return type of method
     public int getLength() {
         return length;
@@ -44,19 +46,19 @@ public class Rectangle {
     }
 
     //methods
-    public int calculateArea() {
-        int calculateArea = length * width; 
-        return calculateArea;
+    public int getArea() {
+        int getArea = length * width; 
+        return getArea;
 
     }
 
-    public int calculatePerimeter() {
-        int calculatePerimeter = 2 * (length + width); 
-        return calculatePerimeter;
+    public int getPerimeter() {
+        int getPerimeter = 2 * (length + width); 
+        return getPerimeter;
     }
 
-    public double calculateDiagonal() {
-        double calculateDiagonal = Math.sqrt(Math.pow(length, 2) + Math.pow(width, 2)); 
-        return calculateDiagonal;
+    public double getDiagonal() {
+        double getDiagonal = Math.sqrt(Math.pow(length, 2) + Math.pow(width, 2)); 
+        return getDiagonal;
     }
 }

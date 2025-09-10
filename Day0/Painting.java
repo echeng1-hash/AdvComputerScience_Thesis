@@ -81,4 +81,12 @@ public class Painting {
         percentOfTrees = 62.3;
     }
     // the only thhing the computer is runing is the main function, so if u want to run something, put them in main
+
+    public double getPercentOfTrees() { // getter
+        return this.percentOfTrees;
+    }
+
+    public void setShape(String shape) { // setter
+        this.shape = shape;
+    }
 }

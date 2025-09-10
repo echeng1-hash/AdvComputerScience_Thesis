@@ -1,5 +1,6 @@
 public class RectangleTester {
-    public static void main (String[] agrs){
+    public static void main(String[] agrs) {
+
         // decoloration: type name; Instantiation/initialization = new type()
         Rectangle abc = new Rectangle(6, 2);
         Rectangle one = new Rectangle(8, 3);
@@ -19,10 +20,10 @@ public class RectangleTester {
         abc.setLength(12);
         System.out.println("Testing setLength: Finally, length is " + one.getWidth());
 
-        System.out.println("Testing calculateArea: " + two.calculateArea());
+        System.out.println("Testing calculateArea: " + two.getArea());
 
-        System.out.println("Testing calculatePerimeter: " + lil.calculatePerimeter());
+        System.out.println("Testing calculatePerimeter: " + lil.getPerimeter());
 
-        System.out.println("Testing calculateDiagonal: " + lil.calculateDiagonal());
+        System.out.println("Testing calculateDiagonal: " + lil.getDiagonal());
     }
 }
