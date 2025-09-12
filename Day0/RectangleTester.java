@@ -3,12 +3,9 @@ public class RectangleTester {
 
         // decoloration: type name; Instantiation/initialization = new type()
         Rectangle abc = new Rectangle(6, 2);
-        Rectangle one = new Rectangle(8, 3);
-        Rectangle two = new Rectangle(26, 11);
-        Rectangle lil = new Rectangle(5);
-
         System.out.println("Testing getWidth: " + abc.getWidth());
-
+        
+        Rectangle one = new Rectangle(8, 3);
         System.out.println("Testing getWidth: " + one.getWidth());
 
         // the way to test void methods is to check the variable before and after
@@ -19,11 +16,21 @@ public class RectangleTester {
         System.out.println("Testing setWidth: Initially, length is " + one.getWidth());
         abc.setLength(12);
         System.out.println("Testing setLength: Finally, length is " + one.getWidth());
-
+        
+        Rectangle two = new Rectangle(26, 11);
         System.out.println("Testing calculateArea: " + two.getArea());
 
+
+        Rectangle lil = new Rectangle(5);
         System.out.println("Testing calculatePerimeter: " + lil.getPerimeter());
 
         System.out.println("Testing calculateDiagonal: " + lil.getDiagonal());
+
+        if (abc.equals(two)) {
+            System.out.println("They are equal.");   
+        } else {
+            System.out.println("They are not equal.");
+
+        }
     }
 }

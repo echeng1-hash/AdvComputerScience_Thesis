@@ -45,7 +45,16 @@ public class Rectangle {
         width = newWidth;
     }
 
-    //methods
+    public boolean equals(Rectangle abc) {
+        if (this.length == abc.length && this.width == abc.width) {
+            return true;
+        } else {
+            return false;
+        }
+    
+    }
+    
+    // methods
     public int getArea() {
         int getArea = length * width; 
         return getArea;
