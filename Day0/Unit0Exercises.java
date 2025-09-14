@@ -24,15 +24,23 @@ public class Unit0Exercises {
     }
 
     public boolean sleepIn(boolean weekday, boolean vacation) {
-        return false;
+        return ! weekday || vacation;
     }
 
     public int diff21(int n) {
-        return 0;
+        if (n <= 21) {
+            return Math.abs(n - 21);
+        } else {
+            return 2 * Math.abs(n - 21);
+        }
     }
 
     public double flooringCalculator(int sqft, double pricePerSqft) {
-        return 0.0;
+        if (sqft <= 0 || pricePerSqft <= 0) {
+            return 0.0;
+        } else {
+            return sqft * pricePerSqft;
+        }
     }
 
 }
