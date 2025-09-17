@@ -1,28 +1,28 @@
 public class StudentTester {
     public static void main(String[] args) {
-        Student Student_1 = new Student("White", 11);
-        System.out.println(Student_1.toSting());
-        Student_1.setGrade(12);
-        System.out.println(Student_1.toSting());
+        Student student1 = new Student("White", 11);
+        System.out.println(student1.toString());
+        student1.setGrade(12);
+        System.out.println(student1.toString());
 
-        Student Student_2 = new Student("Xenon", 11);
-        System.out.println(Student_2.toSting());
-        Student_2.setGrade(12);
-        System.out.println(Student_2.toSting());
+        Student student2 = new Student("Xenon", 11);
+        System.out.println(student2.toString());
+        student2.setGrade(12);
+        System.out.println(student2.toString());
 
-        Student Student_3 = new Student("Yellow");
-        System.out.println(Student_3.toSting());
-        Student_3.setGrade(9);
-        System.out.println(Student_3.toSting());
+        Student student3 = new Student("Yellow");
+        System.out.println(student3.toString());
+        student3.setGrade(9);
+        System.out.println(student3.toString());
 
-        Student Student_4 = new Student("Zebra");
-        System.out.println(Student_4.toSting());
-        Student_4.setGrade(8);
-        System.out.println(Student_4.toSting());
+        Student student4 = new Student("Zebra");
+        System.out.println(student4.toString());
+        student4.setGrade(8);
+        System.out.println(student4.toString());
 
         // test whether having the same person will return T
-        System.out.println(Student_1.equals(Student_1));
+        System.out.println(student1.equals(student1));
         // test whether having the different people will return F
-        System.out.println(Student_1.equals(Student_2));
+        System.out.println(student1.equals(student2));
     }
 }

@@ -39,7 +39,7 @@ public class Student {
         this.grade = grade;
     }
 
-    public String toSting() {
+    public String toString() {
         return name + " is a " + grade 
                 + "th grade student. Their id is " + id;
     }
@@ -56,9 +56,9 @@ public class Student {
 
     public String generateId() {
         String id = "";
-        id += (int) ((Math.random()) * 10);
-        id += (int) ((Math.random()) * 10);
-        id += (int) ((Math.random()) * 10);
+        id += (int) ((Math.random()) * 7) + 1;
+        id += (int) ((Math.random()) * 7) + 1;
+        id += (int) ((Math.random()) * 7) + 1;
         id += "-";
         id += (int) ((Math.random()) * 10);
         id += (int) ((Math.random()) * 10);
