@@ -24,5 +24,6 @@ public class StudentTester {
         System.out.println(student1.equals(student1));
         // test whether having the different people will return F
         System.out.println(student1.equals(student2));
+        System.out.println(student2.getId().split("-")[1].length());
     }
 }

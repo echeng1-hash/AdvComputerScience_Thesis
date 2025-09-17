@@ -41,7 +41,7 @@ public class Student {
 
     public String toString() {
         return name + " is a " + grade 
-                + "th grade student. Their id is " + id;
+                + "th grade student. Their id is " + id + ".";
     }
 
     public Boolean equals(Student other) {
