@@ -33,7 +33,7 @@ public class Cat { //1. Made 'public' lowercase //2. Make "Cats" into "Cat"
 	}
 
 	public boolean equals(Cat other) {
-		return this.name == other.name && this.breed.equals(other.breed)
+		return this.name.equals(other.name) && this.breed.equals(other.breed) //Corresction: String needs to use .equal
 			&& this.livesRemaining == other.livesRemaining; //10. make "=" into "=="
 	}
 

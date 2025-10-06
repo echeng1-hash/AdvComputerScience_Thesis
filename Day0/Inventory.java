@@ -15,7 +15,7 @@ public class Inventory {
     }
 
     public void setItemName(String itemName) {
-        this.itemName = "Shrimp";
+        this.itemName = itemName;
     }
 
     public int getQuantity() {
@@ -40,7 +40,7 @@ public class Inventory {
     }
 
     public boolean equals(Inventory other) {
-        if (this.itemName == other.itemName && this.quantity == other.quantity && this.price == other.price) {
+        if (this.itemName.equals(other.itemName) && this.quantity == other.quantity && this.price == other.price) {
             return true;
         } else {
             return false;
@@ -49,7 +49,7 @@ public class Inventory {
 
     public void raisePrice(double percentage) {
         percentage = (Math.random()) * 101;
-        (int) price = price * ( 1 + percentage / 100);
-        return price;
+        price = (int) price * ( 1 + percentage / 100);
+
     }
 }

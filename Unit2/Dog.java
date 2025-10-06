@@ -1,4 +1,5 @@
 public class Dog {
+    public static final String toString = null;
     private String name;
     private String ownerName;
     private int age;
@@ -51,7 +52,7 @@ public class Dog {
         this.dogTag = dogTag;
     }
     
-    public void setStrillInFacility(boolean strillInFacility) {
+    public void setStillInFacility(boolean strillInFacility) {
         this.strillInFacility = strillInFacility;
     }
     
@@ -79,7 +80,7 @@ public class Dog {
         return dogTag;
     }
    
-    public boolean isStrillInFacility() {
+    public boolean isStillInFacility() {
         return strillInFacility;
     }
 
@@ -108,11 +109,14 @@ public class Dog {
     }
 
     public String generateDogTag() {
-        return (String) dogId + dogChar;
+        return dogId + "" + dogChar;
     }
 
     public char generateDogChar() {
-        
+        int n = this.dogId;
+        int sum = (n / 100) + ((n / 10) % 10) +(n % 10);
+        int code = 'F' + (sum % 10);
+        return (char) code;
     }
     
 }
