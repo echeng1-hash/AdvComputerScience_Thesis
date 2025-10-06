@@ -13,7 +13,7 @@ public class Dog {
         this.ownerName = ownerName;
         this.age = age;
         this.dogId = dogId;
-        this.dogChar = generateDogChar();
+        this.dogChar = Dog.generateDogChar(this.dogId);
         this.dogTag = generateDogTag();
         this.strillInFacility = true;
     }
@@ -23,7 +23,7 @@ public class Dog {
         this.ownerName = "Ellie";
         this.age = 4;
         this.dogId = 228;
-        this.dogChar = generateDogChar();
+        this.dogChar = Dog.generateDogChar(this.dogId);
         this.dogTag = generateDogTag();
         this.strillInFacility = false;
     }
@@ -112,11 +112,25 @@ public class Dog {
         return dogId + "" + dogChar;
     }
 
-    public char generateDogChar() {
-        int n = this.dogId;
-        int sum = (n / 100) + ((n / 10) % 10) +(n % 10);
+    public static char generateDogChar(int dogId) {
+        int sum = (dogId / 100) + ((dogId / 10) % 10) +(dogId % 10);
         int code = 'F' + (sum % 10);
         return (char) code;
     }
+
+    public static String pickup(Dog dog, String personName) {
+        if (personName.equals(dog.getOwnerName())) {
+            dog.strillInFacility = false;
+            return dog.getName() + " has been picked up by their owner " 
+                + dog.getOwnerName();
+        } else {
+            dog.strillInFacility = true;
+            return dog.getName() + " can't leave because the person is not the owner.";
+        }
+    }
+
+    public static void checkIn(Dog dog, String personName) {
+        dog.strillInFacility = true;
+        dog.ownerName = personName;
     
 }
