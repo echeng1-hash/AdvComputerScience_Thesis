@@ -132,5 +132,5 @@ public class Dog {
     public static void checkIn(Dog dog, String personName) {
         dog.strillInFacility = true;
         dog.ownerName = personName;
-    
+    }
 }

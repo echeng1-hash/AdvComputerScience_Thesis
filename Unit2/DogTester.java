@@ -23,8 +23,8 @@ public class DogTester {
         System.out.println(d3.toString());
 
         // 4) Test specialized methods
-        System.out.println(d1.generateDogChar());
-        System.out.println(d3.generateDogChar());
+        System.out.println(d1.getDogChar());
+        System.out.println(d3.getDogChar());
         System.out.println(d1.generateDogTag());
         System.out.println(d2.generateDogTag());
         System.out.println(d3.generateDogTag());
