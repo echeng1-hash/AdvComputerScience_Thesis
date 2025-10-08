@@ -7,7 +7,7 @@ public class DogTester {
         // (c) another dog with different values
         Dog d3 = new Dog("Nico", "Husky", 5, 693);
 
-        // 2)Print initial values (getters)
+        // 2) Print initial values (getters)
         System.out.println(d1.toString());
         System.out.println(d2.toString());
         System.out.println(d3.toString());
@@ -40,5 +40,49 @@ public class DogTester {
         // 6) Edge case: change stillInFacility and see if toString() reflects it
         d3.setStillInFacility(false);
         System.out.println(d3.toString());
-    }
+
+        // 7) test generateDogChar()
+        private static void testGenerateDogChar() {
+            int id1 = 123; // given example
+            int id2 = 456;
+            int id3 = 152;
+
+            System.out.println(Dog.generateDogChar(id1)); // expect L
+            System.out.println(Dog.generateDogChar(id2)); // expect U
+            System.out.println(Dog.generateDogChar(id3)); // expect N
+        }
+
+        // 8) test pickup()
+        private static void testPickup() {
+            // Create a Dog and make sure it is checked in under owner "Maria"
+            Dog myDog = new Dog();
+            Dog.checkIn(myDog, "Maria");  // now in facility under "Maria"
+
+            System.out.println(Dog.toString);
+
+            // Scenario 1: correct owner
+            String okToPick = Dog.pickup(myDog, "Maria");
+            System.out.println(Dog.toString);
+
+            // Scenario 2: wrong owner
+            String errToPick = Dog.pickup(myDog, "John");
+            System.out.println(Dog.toString);
+        }
+
+        // 9) test checkIn()
+        private static void testCheckIn() {
+            // Create a Dog that starts as NOT in the facility
+            Dog otherDog = new Dog();
+            otherDog.toString = false; // per instructions (field is public in this assignment)
+
+            System.out.println("Before checkIn, stillInFacility = " + otherDog.toString);
+
+            // Check the dog in under a new owner
+            Dog.checkIn(otherDog, "NewOwner");
+
+            // Verify results
+            System.out.println("After checkIn, stillInFacility = " + otherDog.toString); // should be true
+            System.out.println("Owner after checkIn = " + otherDog.getOwnerName());              // should be "NewOwner"
+        }
+        
 }
