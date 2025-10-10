@@ -73,16 +73,12 @@ public class DogTester {
         private static void testCheckIn() {
             // Create a Dog that starts as NOT in the facility
             Dog otherDog = new Dog();
-            otherDog.toString = false; // per instructions (field is public in this assignment)
-
-            System.out.println("Before checkIn, stillInFacility = " + otherDog.toString);
-
             // Check the dog in under a new owner
             Dog.checkIn(otherDog, "NewOwner");
 
             // Verify results
-            System.out.println("After checkIn, stillInFacility = " + otherDog.toString); // should be true
-            System.out.println("Owner after checkIn = " + otherDog.getOwnerName());              // should be "NewOwner"
+            System.out.println(Dog.toString); // should be true
+            System.out.println(otherDog.getOwnerName()); // should be "NewOwner"
         }
         
 }
