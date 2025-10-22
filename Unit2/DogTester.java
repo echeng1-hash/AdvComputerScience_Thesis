@@ -25,9 +25,9 @@ public class DogTester {
         // 4) Test specialized methods
         System.out.println(d1.getDogChar());
         System.out.println(d3.getDogChar());
-        System.out.println(d1.generateDogTag());
-        System.out.println(d2.generateDogTag());
-        System.out.println(d3.generateDogTag());
+        System.out.println(PawesomeUtils.generateDogTag(d1.getDogId(), d1.getDogChar()));
+        System.out.println(PawesomeUtils.generateDogTag(d2.getDogId(), d2.getDogChar()));
+        System.out.println(PawesomeUtils.generateDogTag(d3.getDogId(), d3.getDogChar()));
         System.out.println("d1: " + d1.toString());
         System.out.println("d2: " + d2.toString());
         System.out.println("d3: " + d3.toString());
@@ -41,44 +41,60 @@ public class DogTester {
         d3.setStillInFacility(false);
         System.out.println(d3.toString());
 
-        // 7) test generateDogChar()
-        private static void testGenerateDogChar() {
-            int id1 = 123; // given example
-            int id2 = 456;
-            int id3 = 152;
+        // 10) test validateDogId()
+        System.out.println(PawesomeUtils.validateDogId(111)); // valid
+        System.out.println(PawesomeUtils.validateDogId(451)); // valid
+        System.out.println(PawesomeUtils.validateDogId(1900)); // invalid
+        System.out.println(PawesomeUtils.validateDogId(1024)); // invalid
 
-            System.out.println(Dog.generateDogChar(id1)); // expect L
-            System.out.println(Dog.generateDogChar(id2)); // expect U
-            System.out.println(Dog.generateDogChar(id3)); // expect N
-        }
+        // 11) evaluate validateDogTag()
+        System.out.println(PawesomeUtils.validateDogTag(d1));
+        System.out.println(PawesomeUtils.validateDogTag(d2));
+        System.out.println(PawesomeUtils.validateDogTag(d3));
 
-        // 8) test pickup()
-        private static void testPickup() {
-            // Create a Dog and make sure it is checked in under owner "Maria"
-            Dog myDog = new Dog();
-            Dog.checkIn(myDog, "Maria");  // now in facility under "Maria"
+        // 12) Test edge cases with validateDogTag()
+        d3.setDogChar('A');
+        System.out.println(PawesomeUtils.validateDogTag(d3)); // should be false
+    }
 
-            System.out.println(Dog.toString);
+    // 7) test generateDogChar()
+    private static void testGenerateDogChar() {
+        int id1 = 123; // given example
+        int id2 = 456;
+        int id3 = 152;
 
-            // Scenario 1: correct owner
-            String okToPick = Dog.pickup(myDog, "Maria");
-            System.out.println(Dog.toString);
+        System.out.println(PawesomeUtils.generateDogChar(id1)); // expect L
+        System.out.println(PawesomeUtils.generateDogChar(id2)); // expect U
+        System.out.println(PawesomeUtils.generateDogChar(id3)); // expect N
+    }
 
-            // Scenario 2: wrong owner
-            String errToPick = Dog.pickup(myDog, "John");
-            System.out.println(Dog.toString);
-        }
+    // 8) test pickup()
+    private static void testPickup() {
+        // Create a Dog and make sure it is checked in under owner "Maria"
+        Dog myDog = new Dog();
+        PawesomeUtils.checkIn(myDog, "Maria");  // now in facility under "Maria"
 
-        // 9) test checkIn()
-        private static void testCheckIn() {
-            // Create a Dog that starts as NOT in the facility
-            Dog otherDog = new Dog();
-            // Check the dog in under a new owner
-            Dog.checkIn(otherDog, "NewOwner");
+        System.out.println(Dog.toString);
 
-            // Verify results
-            System.out.println(Dog.toString); // should be true
-            System.out.println(otherDog.getOwnerName()); // should be "NewOwner"
-        }
-        
+        // Scenario 1: correct owner
+        String okToPick = PawesomeUtils.pickup(myDog, "Maria");
+        System.out.println(Dog.toString);
+
+        // Scenario 2: wrong owner
+        String errToPick = PawesomeUtils.pickup(myDog, "John");
+        System.out.println(Dog.toString);
+    }
+
+    // 9) test checkIn()
+    private static void testCheckIn() {
+        // Create a Dog that starts as NOT in the facility
+        Dog otherDog = new Dog();
+        // Check the dog in under a new owner
+        PawesomeUtils.checkIn(otherDog, "NewOwner");
+
+        // Verify results
+        System.out.println(Dog.toString); // should be true
+        System.out.println(otherDog.getOwnerName()); // should be "NewOwner"
+    }
 }
+

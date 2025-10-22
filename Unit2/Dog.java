@@ -69,12 +69,20 @@ public class Dog {
     }
     
     public void setDogId(int dogId) {
-        this.dogId = dogId;
+        this.dogId = PawesomeUtils.validateDogId(dogId);
+        char newChar = PawesomeUtils.generateDogChar(this.dogId);
+        setDogChar(newChar);
+
+        String newTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
+        setDogTag(newTag);
     }
     
     public void setDogChar(char dogChar) {
         this.dogChar = dogChar;
+        String newTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
+        setDogTag(newTag);
     }
+    
     
     public void setDogTag(String dogTag) {
         this.dogTag = dogTag;

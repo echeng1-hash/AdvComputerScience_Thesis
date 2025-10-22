@@ -12,11 +12,11 @@ public class PawesomeUtils {
     }
 
     public static boolean validateDogTag(Dog dog) {
-        dogId = Dog.getDogId();
+        int dogId = dog.getDogId();
         validateDogId(dogId);
-        dogChar = Dog.generateDogChar(dogId);
+        char dogChar = generateDogChar(dogId);
         String newDogTag = "" + dogId + dogChar;
-        if (newDogTag.equal(Dog.getDogTag)) {
+        if (newDogTag.equals(dog.getDogTag())) {
             return true;
         } else {
             return false;
@@ -31,17 +31,17 @@ public class PawesomeUtils {
 
     public static String pickup(Dog dog, String personName) {
         if (personName.equals(dog.getOwnerName())) {
-            dog.strillInFacility = false;
+            dog.setStillInFacility(false);
             return dog.getName() + " has been picked up by their owner " 
                 + dog.getOwnerName();
         } else {
-            dog.strillInFacility = true;
+            dog.setStillInFacility(true);
             return dog.getName() + " can't leave because the person is not the owner.";
         }
     }
 
     public static void checkIn(Dog dog, String personName) {
-        dog.strillInFacility = true;
-        dog.ownerName = personName;
+        dog.setStillInFacility(true);
+        dog.setOwnerName(personName);
     }
 }
