@@ -18,5 +18,6 @@ public class TriangleLoopsTester {
 
         // test createAlphabetTriangle
         System.out.println(TriangleLoops.createAlphabetTriangle(5));
+        System.out.println(TriangleLoops.createAlphabetTriangle(27));
     }
 }
