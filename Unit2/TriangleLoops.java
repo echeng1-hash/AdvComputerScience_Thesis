@@ -76,6 +76,9 @@ public class TriangleLoops {
     // to-do: implement createAlphabetTriangle
     public static String createAlphabetTriangle(int numberOfRows) {
         String triangle = "";
+        if (numberOfRows >= 26) {
+            numberOfRows = 26;
+        }
         for (int row = 1; row <= numberOfRows; row++) { // row
             for (int s = 0; s < numberOfRows - row; s++) {
                 triangle += ' '; // add spaces in front
