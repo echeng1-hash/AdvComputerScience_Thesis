@@ -55,6 +55,18 @@ public class DogTester {
         // 12) Test edge cases with validateDogTag()
         d3.setDogChar('A');
         System.out.println(PawesomeUtils.validateDogTag(d3)); // should be false
+
+        // 13) test convertAgeToHumanAge
+        Dog d5 = new Dog("aaa", "Lab", 1, 213);
+        Dog d6 = new Dog("bbb", "Lab", 2, 213);
+        System.out.println(PawesomeUtils.convertAgeToHumanAge(d5));
+        System.out.println(PawesomeUtils.convertAgeToHumanAge(d6));
+        System.out.println(PawesomeUtils.convertAgeToHumanAge(d3));
+
+        // 14) test convertAgeToDogYears
+        System.out.println(PawesomeUtils.convertAgeToDogYears(1));
+        System.out.println(PawesomeUtils.convertAgeToDogYears(16));
+        System.out.println(PawesomeUtils.convertAgeToDogYears(49));
     }
 
     // 7) test generateDogChar()

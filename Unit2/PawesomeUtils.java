@@ -24,7 +24,7 @@ public class PawesomeUtils {
     }
 
     public static char generateDogChar(int dogId) {
-        int sum = (dogId / 100) + ((dogId / 10) % 10) +(dogId % 10);
+        int sum = (dogId / 100) + ((dogId / 10) % 10) + (dogId % 10);
         int code = 'F' + (sum % 10);
         return (char) code;
     }
@@ -43,5 +43,30 @@ public class PawesomeUtils {
     public static void checkIn(Dog dog, String personName) {
         dog.setStillInFacility(true);
         dog.setOwnerName(personName);
+        if (validateDogTag(dog) == false) {
+            System.out.println("Not valid and denied entry.");
+        } else {
+            System.out.println("The dog was successfully checked in.");
+        }
+    }
+
+    public static int convertAgeToHumanAge(Dog dog) {
+        if (dog.getAge() == 1) {
+            return 15;
+        } else if (dog.getAge() == 2) {
+            return 24;
+        } else {
+            return 24 + (dog.getAge() * 5);
+        }
+    }
+
+    public static int convertAgeToDogYears(int humanYears) {
+        if (humanYears <= 15) {
+            return 1;
+        } else if (humanYears > 15 && humanYears <= 24) {
+            return 2;
+        } else {
+            return (humanYears - 24) / 5 + 2;
+        }
     }
 }

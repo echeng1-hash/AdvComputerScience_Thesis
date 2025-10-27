@@ -1,4 +1,5 @@
 public class Dog {
+    // instance variable
     public static final String toString = null;
     private String name;
     private String ownerName;
@@ -8,6 +9,7 @@ public class Dog {
     private String dogTag;
     private boolean strillInFacility;
 
+    // constructors
     public Dog(String name, String ownerName, int age, int dogId) {
         this.name = name;
         this.ownerName = ownerName;
@@ -28,6 +30,7 @@ public class Dog {
         this.strillInFacility = false;
     }
     
+    // getters
     public String getName() {
         return name;
     }
@@ -56,6 +59,7 @@ public class Dog {
         return strillInFacility;
     }
 
+    // setters
     public void setName(String name) {
         this.name = name;
     }
@@ -92,24 +96,25 @@ public class Dog {
         this.strillInFacility = strillInFacility;
     }
 
+    // inherited methods
     public String toString() {
         if (strillInFacility) {
             return (name + " is a good dog. They are " + age 
-            + " years old and belong to " + ownerName 
-            + ". They are currently in our facility. For employee use only: DogTag is " 
-            + dogTag +".");
+                + " years old and belong to " + ownerName 
+                + ". They are currently in our facility. For employee use only: DogTag is " 
+                + dogTag + ".");
         } else {
             return (name + " is a good dog. They are " + age 
-            + " years old and belong to " + ownerName 
-            + ". They are currently not in our facility. For employee use only: DogTag is " 
-            + dogTag +".");
+                + " years old and belong to " + ownerName 
+                + ". They are currently not in our facility. For employee use only: DogTag is " 
+                + dogTag + ".");
         }
     }
 
     public boolean equals(Dog other) {
         if (this.name.equals(other.name) && this.ownerName.equals(other.ownerName) 
-        && this.age == other.age && this.dogId == other.dogId && this.dogChar == other.dogChar 
-        && this.dogChar == other.dogChar && this.strillInFacility == other.strillInFacility) {
+            && this.age == other.age && this.dogId == other.dogId && this.dogChar == other.dogChar 
+            && this.dogChar == other.dogChar && this.strillInFacility == other.strillInFacility) {
             return true;
         } else {
             return false;
