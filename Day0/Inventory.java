@@ -49,7 +49,6 @@ public class Inventory {
 
     public void raisePrice(double percentage) {
         percentage = (Math.random()) * 101;
-        price = (int) price * ( 1 + percentage / 100);
-
+        price = (int) ((int) price * ( 1 + percentage / 100));
     }
 }
