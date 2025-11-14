@@ -11,17 +11,15 @@ public class Player {
     public String getChoice() {
         return choice;
     }
-    // to-do
+ 
     public void setChoice(String choice) {
-       choice = choice.toLowerCase();
-        if (!choice.equals("rock") 
-            && !choice.equals("paper") 
-            && !choice.equals("scissors")) {
-                this.choice = RPSGame.generateRandomChoice();
-            }
+        this.choice = choice.toLowerCase();
+        if (!RPSGame.validateChoice(this.choice)) {
+            this.choice = RPSGame.generateRandomChoice();
+        }
     }
 
     public String toString() {
-        return name + "chose" + choice + ".";
+        return name + " chose " + choice + ".";
     }
 }
