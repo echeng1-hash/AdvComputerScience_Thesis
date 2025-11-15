@@ -5,9 +5,9 @@ public class Robot {
     private boolean isFacingRight; // true if the robot is facing right
 
     public Robot(int[] hallwayToClean, int startingPosition) {
-        this.hallway = hallwayToClean;
-        this.position = startingPosition;
-        this. isFacingRight = true;
+        setHallway(hallwayToClean);
+        setPosition(startingPosition); 
+        this.isFacingRight = true;
     }
 
     public int[] getHallway() {
@@ -15,7 +15,15 @@ public class Robot {
     }
 
     public void setHallway(int[] hallway) {
-        this.hallway = hallway;
+        this.hallway = new int[hallway.length];
+        for (int i = 0; i < hallway.length; i++) {
+            this.hallway[i] = Math.max(0, hallway[i]);
+        }
+        if (position < 0) {
+            position = 0;
+        } else if (position >= this.hallway.length) {
+            position = this.hallway.length - 1;
+        }
     }
 
     public int getPosition() {
@@ -23,7 +31,13 @@ public class Robot {
     }
 
     public void setPosition(int position) {
-        this.position = position;
+        if (position < 0) {
+            this.position = 0;
+        } else if (position >= hallway.length) {
+            this.position = hallway.length - 1;
+        } else {
+            this.position = position;
+        }
     }
 
     public boolean isFacingRight() {
@@ -53,23 +67,22 @@ public class Robot {
         // 1. Always try to pick up one item if there is any
         if (hallway[position] > 0) {
             hallway[position]--; // pick up one item
-            // If there are still items left here, stay put
-            if (hallway[position] > 0) {
-                return; // Exits the method early if the message is invalid
-            }
-            // If now zero, we will either move or turn around below
         }
-        // At this point, the current tile has no items
-        if (!isRobotBlockedByWall()) {
-            // move forward one step in the direction we are facing
-            if (isFacingRight) {
-                position++;
+        if (hallway[position] < 0) {
+            hallway[position] = 0;
+        }
+        if (hallway[position] == 0) {
+            if (!isRobotBlockedByWall()) {
+                // move forward one step in the direction we are facing
+                if (isFacingRight) {
+                    position++;
+                } else {
+                    position--;
+                }
             } else {
-                position--;
+                // cannot move forward, so turn around
+                isFacingRight = !isFacingRight;
             }
-        } else {
-            // cannot move forward, so turn around
-            isFacingRight = !isFacingRight;
         }
     }
 
