@@ -9,6 +9,11 @@ public class Course {
         this.enrolledStudents = enrolledStudents;
     }
 
+    public Course(String courseName, int maxEnrollment) {
+        this.courseName = courseName;
+        this.enrolledStudents = new StudentRecord[maxEnrollment];
+    }
+
     // getters and setters
     public String getCourseName() {
         return courseName;
@@ -56,7 +61,7 @@ public class Course {
      */
     public String findBestStudent() {
         // if (enrolledStudents == null || enrolledStudents.length == 0) {
-        //     return "";
+        // return "";
         // }
         String bestName = enrolledStudents[0].getName();
         double bestAvg = enrolledStudents[0].getFinalAverage();
@@ -93,5 +98,52 @@ public class Course {
         } else {
             return sum / count;
         }
+    }
+
+    public boolean isFull() {
+        for (int i = 0; i < enrolledStudents.length; i++) {
+            if (enrolledStudents[i] == null) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void enrollStudent(StudentRecord student) {
+        for (int i = 0; i < enrolledStudents.length; i++) {
+            if (enrolledStudents[i] == null) {
+                enrolledStudents[i] = student;
+                return;
+            }
+        }
+    }
+
+    public boolean dropStudent(StudentRecord student) {
+        for (int i = 0; i < enrolledStudents.length; i++) {
+            if (enrolledStudents[i] != null
+                    && enrolledStudents[i].getName().equals(student.getName())) {
+                enrolledStudents[i] = null;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int countEnrolledStudents() {
+        int count = 0;
+        for (int i = 0; i < enrolledStudents.length; i++) {
+            if (enrolledStudents[i] != null) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public void increaseClassSizeBy(int sizeIncrease) {
+        StudentRecord[] newArr = new StudentRecord[enrolledStudents.length + sizeIncrease];
+        for (int i = 0; i < enrolledStudents.length; i++) {
+            newArr[i] = enrolledStudents[i];
+        }
+        enrolledStudents = newArr;
     }
 }
