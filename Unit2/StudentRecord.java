@@ -33,6 +33,21 @@ public class StudentRecord {
         return name + "'s scores: " + Arrays.toString(scores);
     }
 
+    // public String toString() {
+    // String result = name + "'s scores: ["; // start of the text
+    // // loop over ONLY part of the array
+    // int max = 3; // how many elements you want
+    // for (int i = 0; i < max && i < scores.length; i++) {
+    // result += scores[i]; // add the score
+    // // add a comma *between* elements, but not after the last one
+    // if (i < max - 1 && i < scores.length - 1) {
+    // result += ", ";
+    // }
+    // }
+    // result += "]"; // close the bracket
+    // return result;
+    // }
+
     // methods
     public boolean equals(StudentRecord other) {
         if (name.equals(other.name) && scores.equals(other.scores)) {
@@ -101,5 +116,34 @@ public class StudentRecord {
         } else {
             return getAverage(0, scores.length - 1);
         }
-    }
+    }}
+
+    // import java.util.Scanner;
+
+    // public class UserInputExample {
+    // public static void main(String[] args) {
+    // Scanner scanner = new Scanner(System.in); // Create Scanner object
+    // System.out.print("Please enter your name: ");
+    // String userName = scanner.nextLine(); // Read a line of text
+    // System.out.print("Please enter your age: ");
+    // int userAge = scanner.nextInt(); // Read an integer
+    // System.out.println("Hello, " + userName + "! You are " + userAge + " years
+    // old.");
+    // scanner.close(); // Close the scanner
+    // }
+    // }
+
+    // Declaring an array of integers
+    int[] numbers;
+    // Declaring an array of strings
+    String[] names;
+    // Allocating memory for 5 integers
+    numbers=new int[5];
+    // Allocating memory for 3 strings
+    names=new String[3];
+    // Declaring and initializing an array of integers
+    int[] scores = { 70, 80, 90, 100 };
+    // Declaring and initializing an array of strings
+    String[] fruits = { "Apple", "Banana", "Orange"
 }
+;
