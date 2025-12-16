@@ -34,7 +34,7 @@ public class TheaterMember {
     public int countLoyaltyCredits() {
         int count = 0;
         for (int i = 0; i < loyaltyCredits.length; i++) {
-            if (loyaltyCredits[i] = true) {
+            if (loyaltyCredits[i] == true) {
                 count++;
             }
         }
