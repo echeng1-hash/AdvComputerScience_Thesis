@@ -76,9 +76,7 @@ public class DebugDemo {
         for (int i = 0; i < names.length; i++) {
             int len = names[i].length();
             totalLength += len;
-            if (len > 5) {
-                count++;
-            }
+            count++; // count every name
         }
         int averageLength = totalLength / count;
         System.out.println("Average name length: " + averageLength);
@@ -121,17 +119,23 @@ public class DebugDemo {
             return 0.0;
         }
         int sum = 0;
-        for (int i = 0; i <= data.length; i++) {
+        for (int i = 0; i < data.length; i++) { // < not <=
             sum += data[i];
         }
         return sum / (double) data.length;
     }
 
     public static String getUppercaseCity(String city) {
+        if (city == null) { // avoid null exception
+            return "Null.";
+        }
         return city.toUpperCase();
     }
 
     public static int nameLength(String[] names, int index) {
+        if (names == null || index < 0 || index >= names.length || names[index] == null) {
+            return 0; // handle null / bad index safely
+        }
         return names[index].length();
     }
 
