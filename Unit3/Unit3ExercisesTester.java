@@ -110,5 +110,19 @@ public class Unit3ExercisesTester {
             System.out.println(e.toString());
             System.out.println("The method threw an exception when the array was null, as intended.");
         }
+
+        // testGetNthFibonacci();
+        // 1) Main Case - test at least 2 values (compute by hand)
+        // Fibonacci starting with 1: 0, 1, 1, 2, 3, 5, 8, ...
+        System.out.println("Expected 5: " + Unit3Exercises.getNthFibonacci(5));
+        System.out.println("Expected 8: " + Unit3Exercises.getNthFibonacci(6));
+        // 2) Edge Case - negative n (should throw exception)
+        try {
+            System.out.println("Expected exception: " + Unit3Exercises.getNthFibonacci(-3));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out.println("The method threw an exception when n was negative, as intended.");
+        }
+
     }
 }

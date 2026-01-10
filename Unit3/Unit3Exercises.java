@@ -1,6 +1,7 @@
 public class Unit3Exercises {
     // notes:
     // throw new Exception("Bad!");
+    // throw new IllegalArgumentException("n cannot be negative");
     // Intended: return the average length of the strings in the array.
     public static double calculateAverageStringLength(String[] strs) {
         if (strs == null) {
@@ -89,11 +90,14 @@ public class Unit3Exercises {
         return sum;
     }
 
+    // Intended: returns the $nth$ Fibonacci number, the sequence starts with 1.
     public static int getNthFibonacci(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("n cannot be negative");
+        }
         if (n <= 1) {
             return n;
         }
-
         int a = 0, b = 1, c;
         for (int i = 2; i <= n; i++) {
             c = a + b;
@@ -101,5 +105,18 @@ public class Unit3Exercises {
             b = c;
         }
         return b;
+    }
+
+    // Intended: sorts an array in descending order.
+    public static void sortArrayDescending(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[i]) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
     }
 }
