@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Unit3ExercisesTester {
     public static void main(String[] args) {
         // testCalculateStringLengthAverage();
@@ -112,7 +114,7 @@ public class Unit3ExercisesTester {
         }
 
         // testGetNthFibonacci();
-        // 1) Main Case - test at least 2 values (compute by hand)
+        // 1) Main Case - test at least 2 values
         // Fibonacci starting with 1: 0, 1, 1, 2, 3, 5, 8, ...
         System.out.println("Expected 5: " + Unit3Exercises.getNthFibonacci(5));
         System.out.println("Expected 8: " + Unit3Exercises.getNthFibonacci(6));
@@ -124,5 +126,14 @@ public class Unit3ExercisesTester {
             System.out.println("The method threw an exception when n was negative, as intended.");
         }
 
+        // testSortArrayDescending();
+        // 1) Main Case - unsorted array
+        int[] arr = { 3, 1, 7, 4, 2 };
+        // Expected: [7, 4, 3, 2, 1]
+        Unit3Exercises.sortArrayDescending(arr);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
     }
 }
+s
