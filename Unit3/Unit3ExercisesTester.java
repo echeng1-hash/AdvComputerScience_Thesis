@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Unit3ExercisesTester {
     public static void main(String[] args) {
         // testCalculateStringLengthAverage();
@@ -15,7 +13,7 @@ public class Unit3ExercisesTester {
             System.out.println("Expected exception: " + Unit3Exercises.calculateAverageStringLength(letters));
         } catch (Exception e) {
             System.out.println(e.toString());
-            System.out.println("The method threw an exception when the array was null, as intended.");
+            System.out.println("The method threw an exception when the array was null.");
         }
 
         // testReverseString();
@@ -34,7 +32,7 @@ public class Unit3ExercisesTester {
             System.out.println("Expected exception: " + Unit3Exercises.reverseString(testString));
         } catch (Exception e) {
             System.out.println(e.toString());
-            System.out.println("The method threw an exception when the string was null, as intended");
+            System.out.println("The method threw an exception when the string was null.");
         }
 
         // testFindMaxValue();
@@ -53,7 +51,7 @@ public class Unit3ExercisesTester {
             System.out.println("Expected exception: " + Unit3Exercises.findMaxValue(nums));
         } catch (Exception e) {
             System.out.println(e.toString());
-            System.out.println("The method threw an exception when the array was null, as intended.");
+            System.out.println("The method threw an exception when the array was null.");
         }
 
         // testIsPalindrome();
@@ -69,7 +67,7 @@ public class Unit3ExercisesTester {
             System.out.println("Expected exception: " + Unit3Exercises.isPalindrome(testString2));
         } catch (Exception e) {
             System.out.println(e.toString());
-            System.out.println("The method threw an exception when the string was null, as intended.");
+            System.out.println("The method threw an exception when the string was null.");
         }
         // 4) Edge Case - empty string
         testString2 = "";
@@ -91,7 +89,7 @@ public class Unit3ExercisesTester {
             System.out.println("Expected exception: " + Unit3Exercises.sumEvenNumbers(nums2));
         } catch (Exception e) {
             System.out.println(e.toString());
-            System.out.println("The method threw an exception when the array was null, as intended.");
+            System.out.println("The method threw an exception when the array was null.");
         }
 
         // testCalculateSumOfSquares();
@@ -110,7 +108,7 @@ public class Unit3ExercisesTester {
             System.out.println("Expected exception: " + Unit3Exercises.calculateSumOfSquares(nums3));
         } catch (Exception e) {
             System.out.println(e.toString());
-            System.out.println("The method threw an exception when the array was null, as intended.");
+            System.out.println("The method threw an exception when the array was null.");
         }
 
         // testGetNthFibonacci();
@@ -123,16 +121,59 @@ public class Unit3ExercisesTester {
             System.out.println("Expected exception: " + Unit3Exercises.getNthFibonacci(-3));
         } catch (Exception e) {
             System.out.println(e.toString());
-            System.out.println("The method threw an exception when n was negative, as intended.");
+            System.out.println("The method threw an exception when n was negative.");
         }
 
         // testSortArrayDescending();
         // 1) Main Case - unsorted array
         int[] arr = { 3, 1, 7, 4, 2 };
-        // Expected: [7, 4, 3, 2, 1]
         Unit3Exercises.sortArrayDescending(arr);
+        System.out.print("Expected [7, 4, 3, 2, 1]: ");
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
+        // 2) Edge Case - array with negative numbers
+        arr = new int[] { -1, -5, 3, 0, -2 };
+        Unit3Exercises.sortArrayDescending(arr);
+        System.out.print("Expected [3, 0, -1, -2, -5]: ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        // 3) Edge Case - null array (should throw exception)
+        try {
+            arr = null;
+            Unit3Exercises.sortArrayDescending(arr);
+            System.out.println("Expected exception (but none was thrown).");
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out.println("The method threw an exception when the array was null.");
+        }
+
+        // testFindLongestWord();
+        // 1) Main Case - normal array of strings
+        String sentence = "I like pineapple pizza";
+        System.out.println("Expected pineapple: " + Unit3Exercises.findLongestWord(sentence));
+        String sentence2 = "What if I quit?";
+        System.out.println("Expected What: " + Unit3Exercises.findLongestWord(sentence2));
+        // 2) Main Case - tie case (should return first one)
+        sentence = "cat dog";
+        System.out.println("Expected cat: " + Unit3Exercises.findLongestWord(sentence));
+        // 3) Edge Case - null input (should throw exception)
+        try {
+            sentence = null;
+            System.out.println("Expected exception: " + Unit3Exercises.findLongestWord(sentence));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out.println("The method threw an exception when the sentence was null.");
+        }
+        // 4) Edge Case - only spaces (should throw exception)
+        try {
+            sentence = "   ";
+            System.out.println("Expected exception: " + Unit3Exercises.findLongestWord(sentence));
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            System.out.println("The method threw an exception when the sentence was empty.");
+        }
+
     }
 }
