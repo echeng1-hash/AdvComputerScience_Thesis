@@ -2,6 +2,7 @@ public class Unit3Exercises {
     // notes:
     // throw new Exception("Bad!");
     // throw new IllegalArgumentException("n cannot be negative");
+
     // Intended: return the average length of the strings in the array.
     public static double calculateAverageStringLength(String[] strs) {
         if (strs == null) {
@@ -120,5 +121,103 @@ public class Unit3Exercises {
         }
     }
 
-    // Intended
+    // Intended: The method takes a String,
+    // creates an array of the words separated by spaces,
+    // and returns the longest word in the sentence.
+    // If there are words with equal lengths, it returns the first one.
+    public static String findLongestWord(String sentence) {
+        if (sentence == null) {
+            return "str cannot be null";
+        }
+        if (sentence.trim().length() == 0) {
+            return "sentence cannot be empty";
+        }
+        String[] words = sentence.trim().split("\\s+");
+        String longestWord = words[0];
+        for (int i = 1; i < words.length; i++) {
+            if (words[i].length() > longestWord.length()) {
+                longestWord = words[i];
+            }
+        }
+        return longestWord;
+    }
+
+    // Intended: calculates the total amount after applying interest to a principal
+    // amount.
+    public static double calculateInterest(double principal, double rate, int years) {
+        if (principal < 0 || rate < 0 || years <= 0) {
+            return 0.0;
+        }
+        for (int i = 0; i < years; i++) {
+            principal += principal * (rate / 100);
+        }
+        return principal;
+    }
+
+    // Intended: converts a string to a positive integer.
+    // If the string cannot be converted or represents a negative number, return a
+    // default positive integer of 1.
+    public static int parsePositiveInteger(String str) {
+        try {
+            int number = Integer.parseInt(str);
+            if (number <= 0) {
+                return 1;
+            }
+            return number;
+        } catch (NumberFormatException e) {
+            return 1;
+        }
+    }
+
+    // Intended: returns an element at a specific index in an array.
+    // If the index is out of bounds, return a null element.
+    public static String getArrayElement(String[] arr, int index) {
+        if (arr == null) {
+            return "arr cannot be null";
+        }
+        try {
+            return arr[index];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return null;
+        }
+    }
+
+    // Intended: calculate the square root of a number.
+    // If the number is negative, return Double.NaN ("Not a Number").
+    public static double calculateSquareRoot(int number) {
+        if (number < 0) {
+            return Double.NaN;
+        }
+        return Math.sqrt(number);
+    }
+
+    // Intended: calculates the sum of all elements in an int array. If the array is
+    // null, it returns 0.
+    public static int sumArrayElements(int[] array) {
+        try {
+            int sum = 0;
+            for (int i = 0; i < array.length; i++) {
+                sum += array[i];
+            }
+            return sum;
+        } catch (NullPointerException e) {
+            System.out.println("Error: array was null. Returning 0.");
+            return 0;
+        }
+    }
+
+    // Intended: calculates the power of a base number. If the exponent is negative,
+    // return 1.
+    public static double calculatePower(double base, int exponent) {
+        try {
+            if (exponent < 0) {
+                throw new IllegalArgumentException("Exponent cannot be negative. Returning 1.");
+            }
+            return Math.pow(base, exponent);
+
+        } catch (IllegalArgumentException e) {
+            System.out.println(e);
+            return 1;
+        }
+    }
 }
