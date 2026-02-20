@@ -121,7 +121,7 @@ public class Horse extends Animal {
     }
 
     public void move() {
-        System.out.println(getName() + " moves at a " + gait + ".");
+        System.out.println(getName() + " moves at a " + movement + ".");
     }
 
     // Horse-specific methods
